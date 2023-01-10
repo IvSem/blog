@@ -1,0 +1,64 @@
+body {
+	font-family: Lora, serif;
+	font-size: 0.875rem;
+	color: var(--main-text-color);
+	background-color: var(--bg-color);
+}
+//?=========================== wrapper ===========================
+
+.wrapper {
+	min-height: 100%;
+	overflow: clip;
+	display: flex;
+	flex-direction: column;
+}
+
+//?=========================== container ===========================
+
+[class*='__container'] {
+	max-width: 83.125rem;
+	padding-left: 0.9375rem;
+	padding-right: 0.9375rem;
+	margin: 0 auto;
+}
+
+main {
+	flex: 1 1 auto;
+}
+
+//?===========================categorie===========================
+.category {
+	display: inline-block;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+	font-size: 0.625rem;
+	line-height: 1.2; /* 12/10 */
+	text-transform: uppercase;
+	padding: 0.3125rem 0.625rem;
+	color: var(--light-color);
+	background-color: rgba(255, 255, 255, 0.15);
+	border-radius: 0.5rem;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.567);
+	}
+}
+
+//?===========================title===========================
+.title {
+	font-weight: 700;
+	font-size: 2.25rem;
+	line-height: 1.27; /* 46/36 */
+	color: var(--light-color);
+
+	&_dark {
+		color: var(--main-text-color);
+	}
+}
+//?===========================text===========================
+.text {
+	font-size: 0.75rem;
+	line-height: 1.67;
+	color: var(--second-light-color);
+}

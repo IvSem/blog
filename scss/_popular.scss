@@ -1,0 +1,149 @@
+.popular {
+	// .popular__container
+	&__container {
+	}
+
+	// .popular__header
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		gap: 0.9375rem;
+		align-items: center;
+		margin-bottom: 2.8125rem;
+		@media (max-width: $mobileSmall) {
+			flex-direction: column;
+		}
+	}
+
+	// .popular__title
+	&__title {
+	}
+
+	// .popular__nav
+	&__nav {
+	}
+
+	// .popular__content
+	&__content {
+	}
+
+	// .popular__tab
+	&__tab {
+	}
+
+	// .popular__items
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
+		column-gap: 1.25rem;
+		row-gap: 3.125rem;
+	}
+
+	// .popular__item
+	&__item {
+	}
+}
+
+.nav-popular {
+	display: flex;
+	gap: 1.25rem;
+	flex-wrap: wrap;
+	row-gap: 0.3125rem;
+	column-gap: 1.25rem;
+	justify-content: center;
+	align-items: center;
+	@media (max-width: $mobileSmall) {
+		flex-direction: column;
+	}
+
+	// .nav-popular__item
+	&__item {
+		font-weight: 700;
+		font-size: 0.875rem;
+		line-height: 1.5;
+
+		color: var(--main-text-color);
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0.125rem;
+			bottom: 0;
+			left: 50%;
+			transition: all 0.2s ease-in-out;
+			background-color: #d4a373;
+		}
+
+		&.active::after,
+		&:hover:after {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+.item-popular {
+	display: grid;
+	align-content: start;
+
+	gap: 0.9375rem;
+	position: relative;
+
+	// .item-popular__categoty
+	&__categoty {
+		position: absolute;
+		top: 1.25rem;
+		right: 1.25rem;
+		z-index: 2;
+	}
+
+	// .item-popular__image
+	&__image {
+		position: relative;
+		overflow: hidden;
+		border-radius: 0.3125rem;
+		padding-bottom: 90.322581%; /* 280/310 */
+
+		& img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			transition: transform 0.8s ease;
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	}
+
+	// .item-popular__date
+	&__date {
+		color: var(--gray-color);
+		line-height: 1.25;
+	}
+
+	// .item-popular__title
+	&__title {
+		font-weight: 700;
+		font-size: 1.125rem;
+		line-height: 1.39;
+
+		color: var(--main-text-color);
+	}
+
+	// .item-popular__link-title
+
+	&__link-title {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	// .item-popular__text
+	&__text {
+		color: var(--gray-color);
+	}
+}

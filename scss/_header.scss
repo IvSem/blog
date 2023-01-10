@@ -1,0 +1,157 @@
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	background-color: rgba(0, 0, 0, 0.2);
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.9375rem;
+		padding-top: 0.625rem;
+		padding-bottom: 0.625rem;
+		min-height: 5rem;
+	}
+
+	// .header__logo
+	&__logo {
+		z-index: 2;
+	}
+
+	// .header__menu
+	&__menu {
+	}
+}
+
+.menu {
+	flex: 1 1 auto;
+	//.menu__body
+	&__body {
+		overflow: auto;
+
+		@media (max-width: $mobile) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background-color: teal;
+			right: -100%;
+			top: 0;
+			padding: 100px 15px 30px 15px;
+
+			transition: right 0.3s ease-in-out;
+
+			&::before {
+				content: '';
+				position: fixed;
+				top: 0;
+				right: -100%;
+				width: 100%;
+				height: 70px;
+				background-color: teal;
+				transition: right 0.3s ease-in-out;
+			}
+		}
+	}
+
+	// .menu__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: 0.1875rem;
+		column-gap: 1.5rem;
+		justify-content: flex-end;
+		@media (max-width: $tablet) {
+			row-gap: 1.5rem;
+		}
+		@media (max-width: $mobile) {
+			row-gap: 1rem;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+		}
+	}
+
+	// .menu__link
+	&__link {
+		display: inline-block;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 700;
+		line-height: 1.5;
+		color: var(--light-color);
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0.125rem;
+			bottom: 0;
+			left: 50%;
+			transition: all 0.2s ease-in-out;
+			background-color: #d4a373;
+		}
+
+		&.active::after,
+		&:hover:after {
+			width: 100%;
+			left: 0;
+		}
+
+		@media (max-width: $mobile) {
+			font-size: 2rem;
+			row-gap: 0.625rem;
+		}
+	}
+
+	&__open .menu__body,
+	&__open .menu__body::before {
+		right: 0;
+	}
+
+	&__open .icon-menu span {
+		width: 0;
+	}
+	&__open .icon-menu::before {
+		top: calc(50% - 1px);
+		transform: rotate(-45deg);
+	}
+	&__open .icon-menu::after {
+		bottom: calc(50% - 1px);
+		transform: rotate(45deg);
+	}
+}
+
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		flex: 0 0 30px;
+		height: 18px;
+		position: relative;
+		z-index: 5;
+
+		& span,
+		&::before,
+		&::after {
+			content: '';
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: violet;
+			transition: 0.2s ease-in-out;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		& span {
+			top: calc(50% - 1px);
+		}
+	}
+}
